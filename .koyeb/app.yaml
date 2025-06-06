@@ -1,0 +1,12 @@
+name: deepseek-telegram-bot
+services:
+  - name: bot-worker
+    type: worker
+    env:
+      - key: TELEGRAM_TOKEN
+        value: {{.TELEGRAM_TOKEN}}
+      - key: DEEPSEEK_API_KEY
+        value: {{.DEEPSEEK_API_KEY}}
+      - key: UPTIME_ROBOT_URL
+        value: {{.UPTIME_ROBOT_URL}}
+    command: python main.py
