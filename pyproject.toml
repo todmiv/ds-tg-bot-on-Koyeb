@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ds-tg-bot-on-koyeb"
+version = "1.0.0"
+description = "Telegram бот с интеграцией DeepSeek AI для Koyeb"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+dependencies = [
+    "python-telegram-bot==20.6",
+    "openai==1.30.1",
+    "requests==2.31.0",
+    "pytest==7.4.3",
+    "pytest-asyncio==0.21.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "flake8",
+    "mypy",
+]
+
+[project.urls]
+Homepage = "https://github.com/todmiv/ds-tg-bot-on-koyeb"
+Repository = "https://github.com/todmiv/ds-tg-bot-on-koyeb"
+Issues = "https://github.com/todmiv/ds-tg-bot-on-koyeb/issues"
+
+[tool.setuptools]
+packages = ["."]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
